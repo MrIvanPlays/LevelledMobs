@@ -84,10 +84,10 @@ LevelledMobs 4 will be relicensed with GNU GPL v3 (non-Affero) as the re-code pe
 
 ## Branches
 
-* `main`: release branch (latest version on Spigot). Code here is stable.
-* `?.?-dev`: these branches contain unfinished code for future releases. Code here is unlikely to be
-  stable.
-    * e.g. `3.0-dev`: code being written for LM v3.0
-    * e.g. `1.2-dev`: code being written for LM v1.2
-* `javadocs`: javadocs for the plugin
-* `task/???`: a branch addressing a specific topic (should be merged later).
+* `master`: release branch (latest version on Spigot). Code here is stable.
+* `#.#-dev`: these branches contain unfinished code for future releases. Code here is unstable.
+    * e.g. `4.0-dev`: code  being written for LM v4.0.x
+    * e.g. `3.6-dev`: code being written for LM v3.6.x
+    * e.g. `2.4-dev`: code being written for LM v2.4.x
+* `javadocs`: javadocs for the plugin hosted using GitHub Pages
+* `task/???`: a branch addressing a specific topic which will be PRd into a development branch once complete.

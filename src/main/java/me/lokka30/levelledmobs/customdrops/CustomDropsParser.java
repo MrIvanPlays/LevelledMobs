@@ -305,10 +305,10 @@ public class CustomDropsParser {
                 continue;
             }
 
-            final Set<Map.Entry<String, Object>> ItemsToCheck = itemConfiguration.getValues(false)
+            final Set<Map.Entry<String, Object>> itemsToCheck = itemConfiguration.getValues(false)
                 .entrySet();
 
-            if (ItemsToCheck.isEmpty() && itemObject.getClass().equals(LinkedHashMap.class)) {
+            if (itemsToCheck.isEmpty() && itemObject.getClass().equals(LinkedHashMap.class)) {
                 // empty list means a material name was provided with no attributes
                 final LinkedHashMap<String, Object> materials = (LinkedHashMap<String, Object>) itemObject;
                 boolean needsContinue = false;
@@ -325,7 +325,7 @@ public class CustomDropsParser {
                 }
             }
 
-            for (final Map.Entry<String, Object> itemEntry : ItemsToCheck) {
+            for (final Map.Entry<String, Object> itemEntry : itemsToCheck) {
                 final String materialName = itemEntry.getKey();
 
                 if (checkForMobOverride(itemEntry, dropInstance)) {
@@ -333,10 +333,8 @@ public class CustomDropsParser {
                 }
 
                 if ("overall_chance".equalsIgnoreCase(materialName)) {
-                    if (itemEntry.getValue() instanceof Double) {
-                        dropInstance.overallChance = (float) itemEntry.getValue();
-                    } else if (itemEntry.getValue() instanceof Integer) {
-                        dropInstance.overallChance = Float.valueOf((Integer) itemEntry.getValue());
+                    if (itemEntry.getValue() instanceof Number) {
+                        dropInstance.overallChance = ((Number) itemEntry.getValue()).floatValue();
                     }
                     continue;
                 } else if ("overall_permission".equalsIgnoreCase(materialName)) {
